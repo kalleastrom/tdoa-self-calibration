@@ -30,11 +30,9 @@ title(['R:' num2str(length(sol.rows)) '/' num2str(size(sol.z,1)) ...
     ' C:' num2str(length(sol.cols)) '/' num2str(size(sol.z,2)) ...
     ' I:' num2str(sum(sol.inlmatrix(:))) '/' num2str(prod(size(sol.z))) ...
     ' P:' num2str(sum(zok(:))) '/' num2str(prod(size(sol.z)))  ...
-    ' E: ' num2str(norm(zerr))]);
+    ' E: ' num2str(std(zerr))]);
 subplot(2,1,2);
 hist(zerr,100);
 m = length(sol.rows);
 n = length(sol.cols);
-title(['Theta2 - Std: ' num2str(norm(zerr)*length(zerr)/(length(zerr)-(3*m+3*n-6)))]);
-
-
+title(['Theta2 - Std: ' num2str(std(zerr)*length(zerr)/(length(zerr)-(3*m+3*n-6)))]);
